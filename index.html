@@ -9,8 +9,10 @@
 <body>
     <h1>PROJECT: Rock, Paper, Scissors</h1>
     <script>
-        const playerSelection = playerPlay();
-        const computerSelection = computerPlay();
+        let playerSelection;
+        let computerSelection;
+        let playerScore = 0;
+        let computerScore = 0;
         
         function computerPlay(){
             if(Math.random()<0.33){
@@ -35,21 +37,24 @@
         }
 
         function playRound(playerSelection, computerSelection){
-            console.log('Hi!')
-            
+            playerSelection = playerPlay();
+            computerSelection = computerPlay();
+
             if (playerSelection === 'rock'){
                 console.log('You played ROCK')
                 switch (true){
                     case computerSelection === 'rock':
-                        console.log('Computer played Rock');
+                        console.log('Computer played ROCK');
                         return 'DRAW! How boring!';
                         break;
                     case computerSelection === 'paper':
-                        console.log('Computer played Paper');
+                        console.log('Computer played PAPER');
+                        computerScore++
                         return 'You LOSE! Paper beats Rock!';
                         break;
                     case computerSelection === 'scissors':
-                        console.log('Computer played Scissors');
+                        console.log('Computer played SCISSORS');
+                        playerScore++
                         return 'You WIN! Rock beats Scissors!';
                         break;
                     default:
@@ -59,15 +64,17 @@
                 console.log('You played PAPER')
                 switch (true){
                     case computerSelection === 'rock':
-                        console.log('Computer played Rock');
+                        console.log('Computer played ROCK');
+                        playerScore++
                         return 'You WIN! Paper beats Rock!';
                         break;
                     case computerSelection === 'paper':
-                        console.log('Computer played Paper');
+                        console.log('Computer played PAPER');
                         return 'DRAW! How boring!';
                         break;
                     case computerSelection === 'scissors':
-                        console.log('Computer played Scissors');
+                        console.log('Computer played SCISSORS');
+                        computerScore++
                         return 'You LOSE! Scissors beat Paper!';
                         break;
                     default:
@@ -77,15 +84,17 @@
                 console.log('You played SCISSORS')
                 switch (true){
                     case computerSelection === 'rock':
-                        console.log('Computer played Rock');
+                        console.log('Computer played ROCK');
+                        computerScore++
                         return 'You LOSE! Rock beats Scissors!';
                         break;
                     case computerSelection === 'paper':
-                        console.log('Computer played Paper');
+                        console.log('Computer played PAPER');
+                        playerScore++
                         return 'You WIN! Scissors beat Paper!';
                         break;
                     case computerSelection === 'scissors':
-                        console.log('Computer played Scissors');
+                        console.log('Computer played SCISSORS');
                         return 'DRAW! How boring!';
                         break;
                     default:
@@ -95,7 +104,20 @@
                 console.log('Come on dude, you only had to pick rock, paper or scissors! Was that so hard.');
             }
         }
-        console.log(playRound(playerSelection, computerSelection));
+
+        function game(){
+            for (let i = 1; i<=5;i++){
+                console.log(' ');
+                console.log(`Game ${i}`);
+                console.log(playRound(playerSelection, computerSelection));
+                console.log(`Player ${playerScore} - Computer ${computerScore}`);
+            }
+            let outcomeMessage = (playerScore > computerScore) ? 'VICTORY!' :
+                (playerScore === computerScore) ? 'DRAW!!' :
+                'DEFEAT!';
+            console.log(outcomeMessage);
+        }
+        game();
     </script>
 </body>
 </html>
