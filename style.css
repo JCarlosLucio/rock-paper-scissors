@@ -3,16 +3,19 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 body,html{
-    margin:0;
     font-family: 'Orbitron', sans-serif;
     color:white
 }
-
+p{
+    font-size: 2.5rem;
+    letter-spacing: 0.4rem;
+}
 .container{
-    margin:2%;
     width: 100%;
 }
 .content{
@@ -20,5 +23,31 @@ body,html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+}
+.game{
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+.buttons{
+    margin: 2% 0;
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+}
+.selection{
+    text-align: center;
+}
+.outcome{
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+}
+.finalOutcome h1 {
+    font-size: 10rem;
+    text-decoration: underline;
+    margin: 0;
+}
+#title {
+    padding: 0 2%;
+    letter-spacing: 0.4rem;
 }
