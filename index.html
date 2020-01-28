@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PROJECT: Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>PROJECT: Rock, Paper, Scissors</h1>
+        <h1 id='title'>PROJECT: Rock, Paper, Scissors</h1>
         <div class="content">
             <div class="game">
-                <h2>Game <span class="gameNumber"></span></h2>
+                <h2>Game <span id="gameNumber"></span></h2>
             </div>
             <div class="score">
-                <p>Player <span id="playerScore">0</span> - Computer <span id="computerScore">0</span></p>
+                <p>Player <span id="playerSpan">0</span> - Computer <span id="computerSpan">0</span></p>
             </div>
             <div class="buttons">
                 <button class="rock">ROCK</button>
@@ -24,10 +24,14 @@
                 <button class="scissors">SCISSORS</button>
             </div>
             <div class="selection">
-                <p></p>
+                <h4 id="playerSelect"></h4>
+                <h4 id="computerSelect"></h4>
             </div>
             <div class="outcome">
-                <h2>VICTORY</h2>
+                <h2>WELCOME</h2>
+            </div>
+            <div class="finalOutcome">
+                <h1></h1>
             </div>
         </div>
     </div>
