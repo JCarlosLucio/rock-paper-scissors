@@ -18,7 +18,6 @@ const outcomeDiv = document.querySelector('.outcome');
 const outcomeText = document.querySelector('.outcome h2');
 const finalOutcomeText = document.querySelector('.finalOutcome h1');
 const btns = document.querySelectorAll('.buttons button');
-const playAgainBtn = document.createElement('button')
 
 function computerPlay(){
     if(Math.random()<0.33){
@@ -31,7 +30,7 @@ function computerPlay(){
 }
     
 function game(){
-    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection);
     playerSpan.textContent = playerScore;
     computerSpan.textContent = computerScore;
     gameNumberSpan.textContent = gameNumber;
@@ -71,18 +70,19 @@ function reset(){
 }
 
 function playAgain(){
-        outcome = '';
-        playerSelectText.textContent = '';
-        computerSelectText.textContent = '';
-        outcomeText.textContent = outcome;
-        playAgainBtn.textContent = 'Play Again?';
-        outcomeDiv.appendChild(playAgainBtn)
-        playAgainBtn.addEventListener('click',(e)=>{
+    const playAgainBtn = document.createElement('button');
+    outcome = '';
+    playerSelectText.textContent = '';
+    computerSelectText.textContent = '';
+    outcomeText.textContent = outcome;
+    playAgainBtn.textContent = 'Play Again?';
+    outcomeDiv.appendChild(playAgainBtn);
+    playAgainBtn.addEventListener('click',(e)=>{
         enableBtns();
         reset();
         outcomeDiv.removeChild(playAgainBtn);
         finalOutcomeText.textContent = '';
-    })
+    });
 }
 
 function playRound(playerSelection, computerSelection){
