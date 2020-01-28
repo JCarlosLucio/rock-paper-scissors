@@ -14,8 +14,11 @@ const computerSpan = document.querySelector('#computerSpan');
 const gameNumberSpan = document.querySelector('#gameNumber');
 const playerSelectText = document.querySelector('#playerSelect');
 const computerSelectText = document.querySelector('#computerSelect');
+const outcomeDiv = document.querySelector('.outcome');
 const outcomeText = document.querySelector('.outcome h2');
 const finalOutcomeText = document.querySelector('.finalOutcome h1');
+const btns = document.querySelectorAll('.buttons button');
+const playAgainBtn = document.createElement('button')
 
 function computerPlay(){
     if(Math.random()<0.33){
@@ -36,17 +39,50 @@ function game(){
     if (playerScore === 5){
         finalOutcomeText.textContent = 'VICTORY!';
         disableBtns();
+        playAgain();
     } else if (computerScore === 5){
         finalOutcomeText.textContent = 'DEFEAT!';
         disableBtns();
+        playAgain();
     }
 }
 
 function disableBtns(){
-    const btns = document.querySelectorAll('.buttons button');
     btns.forEach((btn) => {
         btn.disabled = true;
     });
+}
+
+function enableBtns(){
+    btns.forEach((btn) => {
+        btn.disabled = false;
+    });
+}
+
+function reset(){
+    playerSelection= '';
+    computerSelection = '';
+    playerScore = 0;
+    computerScore = 0;
+    gameNumber = '';
+    playerSpan.textContent = playerScore;
+    computerSpan.textContent = computerScore;
+    gameNumberSpan.textContent = gameNumber;
+}
+
+function playAgain(){
+        outcome = '';
+        playerSelectText.textContent = '';
+        computerSelectText.textContent = '';
+        outcomeText.textContent = outcome;
+        playAgainBtn.textContent = 'Play Again?';
+        outcomeDiv.appendChild(playAgainBtn)
+        playAgainBtn.addEventListener('click',(e)=>{
+        enableBtns();
+        reset();
+        outcomeDiv.removeChild(playAgainBtn);
+        finalOutcomeText.textContent = '';
+    })
 }
 
 function playRound(playerSelection, computerSelection){
