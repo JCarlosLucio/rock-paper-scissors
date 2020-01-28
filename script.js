@@ -33,14 +33,11 @@ function game(){
     computerSpan.textContent = computerScore;
     gameNumberSpan.textContent = gameNumber;
     outcomeText.textContent = outcome;
-    if (gameNumber === 5 && playerScore>computerScore){
+    if (playerScore === 5){
         finalOutcomeText.textContent = 'VICTORY!';
         disableBtns();
-    } else if (gameNumber === 5 && playerScore<computerScore){
+    } else if (computerScore === 5){
         finalOutcomeText.textContent = 'DEFEAT!';
-        disableBtns();
-    } else if (gameNumber === 5 && playerScore===computerScore) {
-        finalOutcomeText.textContent = 'DRAW!';
         disableBtns();
     }
 }
